@@ -6,6 +6,6 @@ https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-
 
 ## Commands
 
-### `Team Switch: Generate new Gutenberg block`
+`> Team Switch: Generate new Gutenberg block`
 
 Generates a new Gutenberg block and adds the styling to your style.scss file in your theme.
