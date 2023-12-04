@@ -1,5 +1,9 @@
 # Team Switch Extension README
 
+## Installation
+
+https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix
+
 ## Commands
 
 ### `Team Switch: Generate new Gutenberg block`
