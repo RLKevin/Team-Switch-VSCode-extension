@@ -1,4 +1,4 @@
-# Team Switch Extension README
+# Team Switch Extension for VSCode
 
 ## Installation
 
