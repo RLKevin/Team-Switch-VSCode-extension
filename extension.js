@@ -78,6 +78,7 @@ function activate(context) {
 							fs.writeFileSync(
 								path.join(folderPath, 'block.json'),
 								`{
+	"$schema": "https://raw.githubusercontent.com/AdvancedCustomFields/schemas/refs/heads/main/json/block.json",
 	"name": "switch/${name}",
 	"title": "${name}",
 	"description": "All ${name} block",
@@ -93,7 +94,6 @@ function activate(context) {
 		"postTypes": [],
 		"renderTemplate": "${name}.php"
 	},
-	"render_callback": "my_block_render_callback",
 	"supports": {
 		"align": false,
 		"anchor": false,
