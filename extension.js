@@ -22,7 +22,7 @@ function activate(context) {
 					vscode.window
 						.showInputBox({
 							prompt: 'Enter the target directory',
-							value: 'partials/blocks',
+							value: 'partials/content',
 						})
 						.then((targetDir) => {
 							if (!targetDir) {
@@ -82,13 +82,14 @@ function activate(context) {
 	"name": "switch/${name}",
 	"title": "${name}",
 	"description": "All ${name} block",
-	"category": "switch-blocks",
+	"category": "switch-content",
 	"icon": "",
 	"apiVersion": 2,
 	"keywords": [
 		"${name}",
 		"switch"
 	],
+	"parent": ["switch/column"],
 	"acf": {
 		"mode": "preview",
 		"postTypes": [],
@@ -97,7 +98,8 @@ function activate(context) {
 	"supports": {
 		"align": false,
 		"anchor": false,
-		"alignContent": false
+		"alignContent": false,
+		"mode": false
 	},
 	"example": {
 	}
@@ -114,7 +116,11 @@ function activate(context) {
 								'scss',
 								'style.scss'
 							);
-							const importStatement = `@import '../partials/blocks/${name}/${name}';\n`;
+							const relativeImportPath = path.relative(
+								path.join(workspaceFolder.uri.fsPath, 'scss'),
+								path.join(folderPath, `_${name}.scss`)
+							).replace(/\\/g, '/');
+							const importStatement = `@import '${relativeImportPath.replace(/^_/, '')}';\n`;
 
 							// Read the existing content of style.scss
 							fs.readFile(styleFilePath, 'utf8', (err, data) => {
